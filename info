@@ -1,3 +1,7 @@
+http://semantic-ui.com/collections/menu.html
+http://getskeleton.com/?#lists
+https://erikflowers.github.io/weather-icons/
+
 99762
 select * from weather.forecast where woeid in (select woeid from geo.places(1) where text in ("10001","99762"))
 select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="99762")

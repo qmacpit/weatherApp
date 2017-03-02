@@ -1,6 +1,6 @@
 const { fetchData } = require('./yahooApi');
 
-module.exports = function(app) {
+module.exports = (app) => {
 
   app.get(
     '/api/weather/:locations',

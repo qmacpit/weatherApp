@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+}
+
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
+
+$main-margin: .5em;
+
+nav {
+  color: white;
+  background-color: $main-color;
+  position: fixed;
+  width: 100%;
+  top: 0; bottom: 0; left: -100%; right: 0;
+  transition: .15s ease-out transform;
+  padding: 1em;
+  z-index: 1;
+
+  &.open {
+    transform: translateX(100%);
+  }
+
+  @include desktop {
+    width: $nav-width;
+    position: fixed;
+    top: $main-margin; bottom: $main-margin; left: $main-margin; right: $nav-width;
+
+    &.open {
+      transform: translateX(0);
+    }
+  }
+
+  h5 {
+    text-align: center;
+  }
+
+  &>ul {
+    position: absolute;
+    top: 3.5em;
+    bottom: 1.5em;
+    overflow: auto;
+    left: .5em;
+    right: .5em;
+    list-style: none;
+
+    li {
+      padding: .5em .3em;
+
+      &.selected {
+        background-color: $active-color;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &>.button {
+    position: absolute;
+    bottom: 0;
+    left: 0.2em;
+    right: 0.2em;
+    background: white;
+    margin-bottom: .2em;
+    border-radius: 0;
+  }
+}
+
+article {
+
+  &.empty {
+    padding-top: 3em;
+    text-align: center;
+    color: #2C3E54;
+
+    &.in-progress > i {
+      animation: spin 1s infinite linear;
+    }
+
+    & > i {
+      font-size: 15rem;
+      margin-top: .5em;
+    }
+  }
+
+  @include desktop {
+    padding-left: 1em;
+    overflow: auto;
+    position: fixed;
+    top: $main-margin; bottom: $main-margin; right: $main-margin; left: $nav-width;
+  }
+}
+
+.app-toggle-button {
+  position: fixed;
+  background: $active-color;
+  width: 3.5em;
+  height: 3.5em;
+  right: 2em;
+  bottom: 2em;
+  border-radius: 30px;
+
+  i {
+    color: white;
+    font-size: 3.5em;
+    position: relative;
+    left: .23em;
+    top: -.01em;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @include desktop {
+    display: none;
+  }
+}

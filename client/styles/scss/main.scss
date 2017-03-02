@@ -1,0 +1,22 @@
+$main-color: #2c3e50;
+$active-color: #f1c40f;
+$desktop-width: 800px;
+$desktop-lg-width: 1200px;
+$nav-width: 30%;
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin desktop-lg {
+  @media (min-width: #{$desktop-lg-width}) {
+    @content;
+  }
+}
+
+@import 'widgets.scss';
+@import 'layout.scss';
+@import 'locationDetails.scss';
+@import 'weather.scss';

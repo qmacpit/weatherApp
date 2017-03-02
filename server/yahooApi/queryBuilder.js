@@ -6,7 +6,7 @@ const QUERY_TEMPLATE = `select * from weather.forecast where woeid in (select wo
  * @param {String} string text param
  * "x" => text="x"
  */
-const buildSingleQuery = text => QUERY_TEMPLATE.replace(QUERY_DATA_TAG, ` text="${text}"`)
+const buildSingleQuery = text => QUERY_TEMPLATE.replace(QUERY_DATA_TAG, ` text="${text}"`);
 
 /**
  * Build query from text array
@@ -14,7 +14,7 @@ const buildSingleQuery = text => QUERY_TEMPLATE.replace(QUERY_DATA_TAG, ` text="
  * ["x", "y"] => text in ("x","y"))
  */
 const buildMultipleQuery = text =>
-  QUERY_TEMPLATE.replace(QUERY_DATA_TAG, ` text in (${text.map((current) => `"${current}"`).join(',')})`)
+  QUERY_TEMPLATE.replace(QUERY_DATA_TAG, ` text in (${text.map(current => `"${current}"`).join(',')})`);
 
 module.exports = {
   buildSingleQuery, buildMultipleQuery

@@ -1,13 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
 
-app.use(express.static('../client'));
+app.use(express.static(path.join(__dirname, '../client')));
 app.use(bodyParser.json());
 
 require('./api')(app);
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+app.listen(5000, () => {
+  console.log('listening on port 5000');
 });

@@ -1,0 +1,38 @@
+.locationDetails {
+  padding: 1em;
+  background: $main-color;
+  color: white;
+  text-align: center;
+
+  .weather-state {
+    div {
+      font-weight: bolder;
+      font-size: larger;
+    }
+    & > i {
+      font-size: 8rem;
+      margin: .2em 0;
+    }
+  }
+
+  section {
+    margin-top: 1em;
+
+    p {
+      border-bottom: 1px solid whitesmoke;
+      text-align: left;
+      margin-bottom: 0.5em;
+
+      &>i {
+        margin-right: .2em;
+        font-size: 1.5em;
+        position: relative;
+        float: right;
+      }
+    }
+
+    .key-value-widget span:first-of-type {
+      color: #c1c1c1;
+    }
+  }
+}

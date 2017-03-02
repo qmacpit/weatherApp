@@ -1,0 +1,69 @@
+.weather-state {
+  text-align: center;
+  background-color: $main-color;
+  color: white;
+
+  p {
+    font-size: smaller;
+  }
+  div {
+    text-align: left;
+    &>span:last-of-type {
+      float: right;
+    }
+  }
+}
+
+/**
+* http://codepen.io/iamjoshellis/pen/wWVgVZ
+*/
+@mixin flexgrid($cols, $margin) {
+  $width: (100% / $cols);
+  $calc-margin: (($margin * $cols) - $margin) / $cols;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  &:after {
+    flex: auto;
+    margin: 0 auto;
+    content: "";
+  }
+  >* {
+    width: calc( #{$width} - #{$calc-margin} );
+    margin-left: $margin / 2;
+    margin-right: $margin/ 2;
+    &:nth-child(1) {
+      margin-left: 0;
+    }
+    &:nth-child(#{$cols}n) {
+      margin-right: 0;
+    }
+    &:nth-child(#{$cols}n + 1) {
+      margin-left: 0;
+    }
+  }
+}
+
+.weather-forecast {
+  margin-top: .5em;
+  text-align: center;
+
+  @media screen and (min-width: $desktop-width) and (max-width: $desktop-lg-width) {
+    @include flexgrid(2, 1rem);
+  }
+  @media screen and (min-width: $desktop-lg-width) {
+    @include flexgrid(3, 1rem);
+  }
+
+  .weather-state {
+    padding: .5em;
+    margin-top: .5em;
+    p {
+      margin-bottom: 1.5em;
+    }
+    & > i {
+      font-size: 5rem;
+      margin-bottom: .5em;
+    }
+  }
+}
